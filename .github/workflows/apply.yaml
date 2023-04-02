@@ -31,7 +31,7 @@ jobs:
       - name: "Check format"
         run: terraform fmt --recursive --check
       - name: "Execute apply"
-        run: tfcmt apply -- terraform apply
+        run: tfcmt apply -- terraform apply --auto-approve
         env:
           TF_VAR_discord_token: ${{secrets.DISCORD_TOKEN}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
