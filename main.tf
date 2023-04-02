@@ -31,14 +31,3 @@ resource "discord_role" "phh" {
   permissions = 2146959345
   position    = 1
 }
-
-data "discord_permission" "aaaaaaaa" {
-  manage_nicknames = "allow"
-}
-
-resource "discord_role" "aaaaaaaa" {
-  name        = "aaaaaaaa"
-  server_id   = discord_server.main.id
-  permissions = data.discord_permission.aaaaaaaa.allow_bits
-  position    = 2
-}
