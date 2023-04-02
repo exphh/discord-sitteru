@@ -7,7 +7,6 @@ jobs:
   plan:
     name: Terraform
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.labels.*.name, 'plan executable')
 
     defaults:
       run:
