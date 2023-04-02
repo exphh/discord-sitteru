@@ -1,8 +1,6 @@
 name: plan
 
 on:
-  - pull_request_types:
-    types: [labeled]
   - pull_request
 
 jobs: 
