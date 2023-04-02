@@ -1,8 +1,9 @@
 name: apply
 
 on:
-  branches:
-    - main
+  push:
+    branches:
+      - main
 
 jobs: 
   apply:
