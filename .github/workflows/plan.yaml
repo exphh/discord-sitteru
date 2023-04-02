@@ -1,0 +1,35 @@
+name: plan
+
+on:
+  - pull_request
+
+jobs: 
+  plan:
+    name: Terraform
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+      - name: 'Setup Terraform'
+        uses: hashicorp/setup-terraform@v2
+      - name: setup tfcmt
+        env:
+          TFCMT_VERSION: v4.2.0
+        run: |
+          wget "https://github.com/suzuki-shunsuke/tfcmt/releases/download/${TFCMT_VERSION}/tfcmt_linux_amd64.tar.gz" -O /tmp/tfcmt.tar.gz
+          tar xzf /tmp/tfcmt.tar.gz -C /tmp
+          mv /tmp/tfcmt /usr/local/bin
+          tfcmt --version
+      - name: "Initialize terraform"
+        run: terraform init
+      - name: "Check format"
+        run: terraform fmt --recursive --check
+      - name: "Execute plan"
+        run: tfcmt plan -patch -- terraform plan
+        env:
+          TF_VAR_discord_token: ${{secrets.DISCORD_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
