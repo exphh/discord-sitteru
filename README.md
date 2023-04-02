@@ -7,7 +7,6 @@
 PHH砂場のDiscordサーバーのterraform管理リポジトリです。
 
 ## セットアップ
-1.
 1. このリポジトリをcloneしてください `git clone git@github.com:exphh/discord-sitteru.git && cd discord-sitteru`
 1. `terraform init` を実行します
 
