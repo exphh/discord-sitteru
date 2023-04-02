@@ -1,11 +1,11 @@
 data "discord_local_image" "icon" {
-    file = "icon.png"
+  file = "icon.png"
 }
 
 resource "discord_server" "main" {
-  name   = "PHH砂場"
-  region = "us-south"
-  icon_data_uri  = data.discord_local_image.icon.data_uri
+  name          = "PHH砂場"
+  region        = "us-south"
+  icon_data_uri = data.discord_local_image.icon.data_uri
 }
 
 # カテゴリごとにファイルを作ってもいいかもしれない
