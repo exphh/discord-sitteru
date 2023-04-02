@@ -3,7 +3,7 @@ data "discord_local_image" "icon" {
 }
 
 resource "discord_server" "main" {
-  name          = "PHH砂場"
+  name          = "神"
   region        = "us-south"
   icon_data_uri = data.discord_local_image.icon.data_uri
 }
