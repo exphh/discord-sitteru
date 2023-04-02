@@ -38,19 +38,35 @@ resource "discord_voice_channel" "general" {
 
 resource "discord_role_everyone" "main" {
   server_id   = discord_server.main.id
-  permissions = 104320577
+  permissions = 67042396327489
 }
 
-resource "discord_role" "phh" {
-  name        = "PHH"
-  server_id   = discord_server.main.id
-  permissions = 2146959345
-  position    = 1
+data "discord_permission" "admin" {
+  administrator = "allow"
 }
 
 resource "discord_role" "admin" {
   name        = "admin"
   server_id   = discord_server.main.id
-  permissions = 8
+  permissions = data.discord_permission.admin.allow_bits
+  position    = 3
+}
+
+resource "discord_role" "phh" {
+  name        = "PHH"
+  server_id   = discord_server.main.id
+  # https://github.com/Lucky3028/terraform-provider-discord/pull/96 がマージされたらPR
+  permissions = 2146959345
+  position    = 1
+}
+
+data "discord_permission" "aaaaaaaa" {
+  manage_nicknames = "allow"
+}
+
+resource "discord_role" "aaaaaaaa" {
+  name        = "aaaaaaaa"
+  server_id   = discord_server.main.id
+  permissions = data.discord_permission.aaaaaaaa.allow_bits
   position    = 2
 }
