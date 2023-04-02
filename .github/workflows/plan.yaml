@@ -1,9 +1,7 @@
 name: plan
 
 on:
-  pull_request:
-    branches:
-      - '*'
+  - pull_request_target
 jobs: 
   plan:
     name: Terraform
