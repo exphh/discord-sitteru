@@ -1,8 +1,9 @@
 name: apply
 
 on:
-  branches:
-    - main
+  push:
+    branches:
+      - main
 
 jobs: 
   apply:
@@ -30,7 +31,7 @@ jobs:
       - name: "Check format"
         run: terraform fmt --recursive --check
       - name: "Execute apply"
-        run: tfcmt apply -patch -- terraform apply
+        run: tfcmt apply -- terraform apply
         env:
           TF_VAR_discord_token: ${{secrets.DISCORD_TOKEN}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
