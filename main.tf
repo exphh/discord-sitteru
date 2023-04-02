@@ -53,8 +53,8 @@ resource "discord_role" "admin" {
 }
 
 resource "discord_role" "phh" {
-  name        = "PHH"
-  server_id   = discord_server.main.id
+  name      = "PHH"
+  server_id = discord_server.main.id
   # https://github.com/Lucky3028/terraform-provider-discord/pull/96 がマージされたらPR
   permissions = 2146959345
   position    = 1
