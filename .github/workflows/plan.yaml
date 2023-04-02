@@ -32,5 +32,5 @@ jobs:
       - name: "Execute plan"
         run: tfcmt plan -patch -- terraform plan
         env:
-          TF_VAR_discord_token: ${{secrets.TF_VAR_DISCORD_TOKEN}}
+          TF_VAR_discord_token: ${{secrets.DISCORD_TOKEN}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
