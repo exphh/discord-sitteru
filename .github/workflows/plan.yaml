@@ -3,7 +3,7 @@ name: plan
 on:
   - pull_request
 
-jobs: 
+jobs:
   plan:
     name: Terraform
     runs-on: ubuntu-latest
